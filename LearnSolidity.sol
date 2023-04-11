@@ -84,4 +84,17 @@ function changeOwner(address newOwner) public onlyOwner {
     owner  =  newOwner;
 }
 
+// View vs Pure
+uint public a = 1;
+
+// View functions may only read the state of the contract
+function addView(uint b) public view returns (uint) {
+    return a+b;
+}
+
+//Pure function does not read or write the state variables
+function addPure(uint x, uint y) public pure returns (uint) {
+    return x + y;
+}
+
 }
