@@ -83,6 +83,15 @@ modifier onlyOwner() {
 function changeOwner(address newOwner) public onlyOwner {
     owner  =  newOwner;
 }
+// Constructor : a constructor is a special function that is executed only once when a contract is deployed to the blockchain. It is used to initialize the contract's state variables and perform any other setup tasks that are required. 
+uint public myValue;
+
+constructor(uint initiaValue){
+    myValue = initiaValue;
+}
+function setMyVariable(uint newValue) public {
+        myValue = newValue;
+}
 
 // View vs Pure
 uint public a = 1;
