@@ -106,4 +106,185 @@ function addPure(uint x, uint y) public pure returns (uint) {
     return x + y;
 }
 
+ event Log(string message);
+ 
+// Global Variables
+function paySent() public payable {
+    require(msg.sender == tx.origin); // msg.sender = caller of function, tx.origin = origin of transaction
+    amount = msg.value; // Amount of ether sent alongside the transaction
+}
+
+// function visiblity
+
+// Can be called outside SC and called by another function
+function checkVisibility() public { 
+}
+
+// Cannot be called outside SC but can be called inside of another function in thesame SC
+function checkVisibility1() private { 
+}
+
+// Can only be called outside the SC
+function checkVisibility2() external { 
+}
+
+// Can only be called inside the SM from another function
+function checkVisibility3() internal { 
+}
+
+// There are two types of functions in solidity write functions and read functions 
+
+// This is a write function so you have to pay a gas fee to call function
+function setValue(string memory _age) public {  
+    age = _age;
+}
+
+// While with the read function is completely free
+function getValue() public view returns (string memory) { 
+    return age;
+}
+
+// Operators in solidity 
+
+// Equal to
+function eq(uint q, uint w) external pure returns(bool) {  
+    return q == w;
+}
+
+// Not Equal to
+function notEq(uint q, uint w) external pure returns(bool) { 
+    return q != w;
+}
+
+// Greater than
+function gT(uint q, uint w) external pure returns(bool) { 
+    return q > w;
+}
+
+// Less than
+function lT(uint q, uint w) external pure returns(bool) { 
+    return q < w;
+}
+
+// Greater than Equal to
+function gTEq2(uint q, uint w) external pure returns(bool) { 
+    return q >= w;
+}
+
+// Less than Equal to
+function lTEq2(uint q, uint w) external pure returns(bool) { 
+    return q <= w;
+}
+
+ // Addition 
+function add(uint q, uint w) external pure returns(uint) {
+    return  q + w;
+}
+
+// Subtraction 
+function  sub(uint q, uint w) external pure returns(uint) { 
+    return q - w;
+}
+
+// Division 
+function div(uint q, uint w) external pure returns(uint) { 
+    return q / w;
+}
+
+// Multiplication 
+function mul(uint q, uint w) external pure returns(uint) { 
+    return q * w;
+}
+
+// Exponents
+function exp(uint q, uint w) external pure returns(uint) { 
+    return q ** w;
+}
+
+// Modulus
+function mod(uint q, uint w) external pure returns(uint) { 
+    return q % w;
+}
+
+// Bitwise Xor
+function xor(uint q, uint w) external pure returns(uint) { 
+    return q ^ w;
+}
+
+// Increment
+function inc(uint q) external pure returns(uint) { 
+    q++;
+    return q;
+}
+
+// Decrement
+function dec(uint q) external pure returns(uint) { 
+    q--;
+    return q;
+}
+
+// And making sure both things are true
+function and(bool q, bool w) external pure returns(bool) { 
+    return q && w;
+}
+
+// Or either one of the variables is true
+function or(bool q, bool w) external pure returns(bool) { 
+    return q || w;
+}
+
+// Check if something is not true
+function not(bool q) external pure returns(bool) { 
+    return !q;
+}
+
+function addExample() external pure returns(bool) {
+    return (1+1 == 2) && (2+2 == 4);
+}
+
+// Conditionals in Solidity
+
+// if q % 2 == 0 return 'even', else return 'odd'
+function evenOrOdd(uint q) public pure returns (string memory) {
+    if(q % 2 == 0) {  
+        return "even";
+    } else {
+        return "odd";
+    }
+}
+
+function evenOrOdd1(uint q) public pure returns (string memory) {
+    if(q % 2 == 0) {
+        return "even";
+    }
+    return "odd";
+}
+
+function evenOrOdd2(uint q) public pure returns (string memory) {
+    return q % 2 == 0 ? "even" : "odd";
+} 
+
+// Mappings - Key value pairs used to store information inside SC
+
+mapping(uint => address) public accountBalance;
+mapping(uint => string) public name;
+mapping(address => uint) public addresses;
+mapping(address => bool) public hasVoted;
+
+// Nested mapping - mapping inside a mapping
+mapping(address => mapping(uint => bool)) public myMapping; 
+
+// Error Handling
+function example1(uint _amount) public {
+    require(_amount > 10, "must be greater than 10");
+    emit Log("success");
+}
+
+function example2(uint _amount) public {
+    if(_amount <= 10) {
+        revert("must be greater than 10");
+    }
+    emit Log("success");
+}
+
 }
