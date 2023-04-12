@@ -105,6 +105,9 @@ function addView(uint b) public view returns (uint) {
 function addPure(uint x, uint y) public pure returns (uint) {
     return x + y;
 }
+//mapping helps to keep track of keys and it values(a good example of key and value is wallet and amount)
+mapping(address => uint) public balanceof;
+
 
  event Log(string message);
  
@@ -287,4 +290,8 @@ function example2(uint _amount) public {
     emit Log("success");
 }
 
+=======
+//nested mapping used to keep track of events involving multi users
+//mapping(address => mapping(address => uint) public allowance;
+//>>>>>>> main
 }
