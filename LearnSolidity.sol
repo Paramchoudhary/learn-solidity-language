@@ -294,4 +294,17 @@ function example2(uint _amount) public {
 //nested mapping used to keep track of events involving multi users
 //mapping(address => mapping(address => uint) public allowance;
 //>>>>>>> main
+
+// Caller Function
+ address public owner;
+
+  constructor() {
+    owner = msg.sender;
+  }
+
+  function doSomething() public {
+    require(msg.sender == owner, "Only the contract owner can call this function.");
+    // function code goes here
+  }
+
 }
