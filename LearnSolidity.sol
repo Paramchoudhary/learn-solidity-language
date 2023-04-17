@@ -294,4 +294,20 @@ function example2(uint _amount) public {
 //nested mapping used to keep track of events involving multi users
 //mapping(address => mapping(address => uint) public allowance;
 //>>>>>>> main
+
+//Try Catch
+function divide(uint256 a, uint256 b) public returns (uint256) {
+    uint256 result;
+    try this.doDivide(a, b) returns (uint256 _result) {
+      result = _result;
+    } catch {
+      revert("Division by zero");
+    }
+    return result;
+  }
+
+  function doDivide(uint256 a, uint256 b) public pure returns (uint256) {
+    require(b != 0, "Division by zero");
+    return a / b;
+  }
 }
