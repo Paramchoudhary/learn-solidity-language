@@ -310,4 +310,17 @@ function divide(uint256 a, uint256 b) public returns (uint256) {
     require(b != 0, "Division by zero");
     return a / b;
   }
+  
+
+//For loop
+    function sum(uint[] memory numbers) public pure returns (uint) {
+       uint total = 0;
+       for (uint i = 0; i < numbers.length; i++) {
+           total += numbers[i];
+       }
+       return total;
+    }
+
+   
+    
 }
