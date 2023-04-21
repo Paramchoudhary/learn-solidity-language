@@ -320,6 +320,16 @@ function divide(uint256 a, uint256 b) public returns (uint256) {
        }
        return total;
     }
+// While loops
+
+    function factorial(uint n) public pure returns (uint) {
+        uint result = 1;
+        while (n > 0) {
+            result *= n;
+            n--;
+        }
+        return result;
+    }
 
    
     
