@@ -290,7 +290,7 @@ function example2(uint _amount) public {
     emit Log("success");
 }
 
-=======
+//=======
 //nested mapping used to keep track of events involving multi users
 //mapping(address => mapping(address => uint) public allowance;
 //>>>>>>> main
@@ -331,6 +331,13 @@ function divide(uint256 a, uint256 b) public returns (uint256) {
         return result;
     }
 
+// Comparing strings
+// if (str1="hello") and (str2="hello") => then ans=true
+//if (str1="Hello") and (str="hello"(or any other value)) => then ans=false
+    function compareString(string memory str1,string memory str2) public pure returns(bool){
+        bool ans=keccak256(abi.encodePacked(str1))==keccak256(abi.encodePacked(str2));
+        return ans;
+    }
    
     
 }
