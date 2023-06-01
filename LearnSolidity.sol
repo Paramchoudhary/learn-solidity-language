@@ -1,5 +1,17 @@
 // SPDX-License-Identifier: GPL-3.0
 
+/* 
+   The following syntax is called Version Pragma. 
+   
+   It is used because solidity get updates regularly to introduce new features and to remove loopholes in the language. 
+
+   So the solidity code which is syntactically and semantically correct in one version may not be correct in 
+   the latest version. This gives solidity compiler the version or range of versions the written code is correct. 
+   
+   Note: version pragma doesn't change the version of the compiler, it just instructs the compiler the current version matches
+        the version mentioned in the source code file. If it doesn't match it throws an error
+
+*/
 pragma solidity >=0.7.0 <0.9.0;
 
 contract LearnSolidity {
@@ -10,6 +22,7 @@ contract LearnSolidity {
 string public name = "Param";
 
 // Integer - a whole number
+
 // "int" can be used to define both negative and positive values
 int public number = -5;   
 
