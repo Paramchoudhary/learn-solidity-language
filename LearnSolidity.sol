@@ -2,7 +2,9 @@
 
 /* 
    The following syntax is called Version Pragma. 
+   
    It is used because solidity get updates regularly to introduce new features and to remove loopholes in the language. 
+
    So the solidity code which is syntactically and semantically correct in one version may not be correct in 
    the latest version. This gives solidity compiler the version or range of versions the written code is correct. 
    
