@@ -10,3 +10,4 @@ This REPO is open for contributions.
 - https://www.web3.university/
 - https://www.useweb3.xyz/
 - https://university.alchemy.com/
+- https://calyptus.co/
